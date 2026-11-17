@@ -31,13 +31,14 @@ class Player(GameSprite):
     # function for moving the player
     def update(self):
         keys = key.get_pressed()
-        if keys[K_LEFT] and self.rect.x > 5:
+
+        if (keys[K_LEFT] or keys[K_a]) and self.rect.x > 0:
             self.rect.x -= self.speed
-        if keys[K_RIGHT] and self.rect.x < win_width - 80:
+        if (keys[K_RIGHT] or keys[K_d]) and self.rect.x < win_width - 40:
             self.rect.x += self.speed
-        if keys[K_UP] and self.rect.y > 0:
+        if (keys[K_UP] or keys[K_w]) and self.rect.y > 0:
             self.rect.y -= self.speed
-        if keys[K_DOWN] and self.rect.y < win_height:
+        if (keys[K_DOWN] or keys[K_s]) and self.rect.y < win_height - 40:
             self.rect.y += self.speed
 
 # class for create walls
